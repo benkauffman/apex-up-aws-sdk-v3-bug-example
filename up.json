@@ -1,0 +1,50 @@
+{
+  "name": "apex-up-aws-sdk-v3-bug-example",
+  "profile": "default",
+  "regions": [
+    "us-east-1"
+  ],
+  "error_pages": {
+    "disable": true
+  },
+  "hooks": {
+    "build": "echo build hook",
+    "deploy": "echo deploy hook",
+    "clean": "echo clean hook"
+  },
+  "cors": {
+    "allowed_origins": [
+      "*"
+    ],
+    "allowed_methods": [
+      "HEAD",
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "allowed_headers": [
+      "*"
+    ],
+    "allow_credentials": true
+  },
+  "proxy": {
+    "timeout": 25
+  },
+  "lambda": {
+    "runtime": "nodejs14.x",
+    "memory": 512,
+    "policy": [
+      {
+        "Effect": "Allow",
+        "Resource": [
+          "arn:aws:dynamodb:*:*:*"
+        ],
+        "Action": [
+          "dynamodb:*"
+        ]
+      }
+    ]
+  }
+}

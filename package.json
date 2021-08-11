@@ -1,0 +1,19 @@
+{
+  "name": "apex-up-aws-sdk-v3-bug-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "setup": "node ./setup.js",
+    "deploy": "up deploy staging",
+    "logs": "up logs staging --since=\"1h\" && up logs staging -f",
+    "destroy": "up stack delete",
+    "test": "curl $(up url)"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.25.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1"
+  }
+}
